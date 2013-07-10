@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div>
+
+<table>
+<tittle><h2 class="the-legend">Filtros de selección</h2></tittle>
+
+<tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+</tr>
+
+<%= form_tag :action => 'index' do %>
+<tr>
+<td><h5  style="margin-right: 10px">Opción</h5></td>
+<td> 
+<%=select_tag 'atr', options_from_collection_for_select(Atr.all , "id", "name"), :prompt => "Atributos" %>
+</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><h5 style="margin-right: 10px">Rango de verificación</h5></td>
+<td> 
+<%=select_tag 'opcion', "<option>Rango fechas</option><option>Rango tiempo</option>".html_safe%>
+</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><h5 style="margin-right: 10px">Selección rango de tiempo</h5></td>
+<td> 
+<%=select_tag 'tiempo', "<option>last year</option><option>last month</option><option>last week</option><option>last day</option><option>last hour</option><option>last minute</option>".html_safe%>
+</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><h5 style="margin-right: 10px">Selección rango de fechas</h5></td>
+<td>
+<div id="datetimepicker" class="input-append date">
+      <%=text_field_tag 'fechaa'%>
+      <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon= "icon-calendar"> </i>
+      </span>
+</div>
+</td>
+<td><h5 style="margin-right: 20px ; margin-left: 20px"> hasta </h5></td>
+<td>
+<div id="datetimepickerb" class="input-append date">
+      <%=text_field_tag 'fechab'%>
+      <span class="add-on">
+        <i data-time-icon="icon-time" data-date-icon= "icon-calendar"> </i>
+      </span>
+</div>
+</td>
+</tr>
+
+<tr>
+<td><%= submit_tag 'Generar' , :class => 'btn-primary' %></td>
+<td></td>
+<td></td>
+</tr>
+<%end%>
+</table>
+
+  <script>
+      $('#datetimepicker').datetimepicker({
+          format: 'dd/MM/yyyy hh:mm:ss'
+      });
+
+      $('#datetimepickerb').datetimepicker({
+          format: 'dd/MM/yyyy hh:mm:ss'
+      });
+  </script>
+
+
+</div>
+</body>
+</html>

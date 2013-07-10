@@ -5,6 +5,9 @@ class Atr
   validates_uniqueness_of :name, scope: :mcr_atr, message: 'Ya existe un atributo con el mismo Nombre'
   validates_presence_of :tipo
   field :name, type: String
+
+
+
   field :desc, type: String
   field :ref_prot, type: String
   field :tipo, type: String, default: 'Integer'
@@ -13,6 +16,10 @@ class Atr
   field :wtbl, type: Boolean, default: false
   belongs_to :mcr_atr
   has_many :alrts
+  has_many :hsts
+
+  
+
   embeds_one :qos_mon, :class_name => 'AlrMntr'
   embeds_one :alr_mon, :class_name => 'AlrMntr'
   accepts_nested_attributes_for :qos_mon, :alr_mon

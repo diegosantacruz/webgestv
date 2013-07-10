@@ -1,12 +1,22 @@
 # -*- encoding : utf-8 -*-
 Webgestv::Application.routes.draw do
 
+
+  
+
+
+ #get "composites/index"
+  match "/parametros" => "parametros#index"
+  ####!!! match "/reports/index" => "reports#index"
   resources :alrts
 
 
   resources :alr_mntr_frmls
+  
+  #match "/reports/index" => "reports#index"
 
-
+  match "/update_atr" => "parametros#update_atr"
+  match "/refresh_atr" => "parametros#refresh_atr"
   match 'laynet_ele/testconn' => 'laynet_eles#testconn', :via => :get
   match 'net_ele/testconn' => 'net_eles#testconn', :via => :get
   match 'serv/testconn' => 'servs#testconn', :via => :get
@@ -20,7 +30,7 @@ Webgestv::Application.routes.draw do
     post :new, on: :member
     post :load, on: :member
   end
-
+  resources :parametros
   resources :links
 
   resources :laynet_eles do

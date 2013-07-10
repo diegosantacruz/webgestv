@@ -1,0 +1,10 @@
+%h1=t('parametros.config')
+%p#notice= notice
+%fieldset
+ %legend.the-legend
+  .show.title Atributo variable:
+  .show.text= @parametro.name
+  .show.title Descripción:
+  .show.text= @parametro.desc
+%br
+ %p= link_to 'Atrás', parametros_path

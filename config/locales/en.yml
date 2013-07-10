@@ -52,6 +52,7 @@ en:
       changeValue:      "Cambiar valor"
       back:        "Volver"
       save:        "Guardar"
+      load:        "Cargar"
       addparam:    "Agregar parámetros"
       delparam:    "Eliminar parámetros"
       addalarm:    "Agregar monitor de alarma"
@@ -60,7 +61,7 @@ en:
       stopalarm:   "Cesar monitor de alarma"
       playalarm:   "Iniciar monitor de alarma"
       delalarms:
-        notice:     "El monitor de alarma fueeliminado satisfactoriamente."
+        notice:     "El monitor de alarma fue eliminado satisfactoriamente."
         confirm:    "Está seguro que desea eliminar el monitor de alarma?"
       delparams:
         notice:     "Los parámetros fueron eliminados satisfactoriamente."
@@ -161,3 +162,14 @@ en:
       notice:     "La conexión fue creada satisfactoriamente."
     delete:
       notice:     "La conexión fue eliminada satisfactoriamente."
+
+  parametros:
+    model:        "Parametros"
+    config:       "Configuración"
+    index:
+      title:      "Listado de Parametros"
+      new:         "Crear un parametro"
+      confirm:    "Está seguro que desea eliminar el parametro"
+    create:
+      notice:     "Los parametros se cargaron satisfactoriamente"
+    

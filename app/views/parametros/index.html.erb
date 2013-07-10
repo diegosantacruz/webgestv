@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+
+<table border="0">
+<tittle><h2 class="the-legend">Tipo de parámetros a gestionar</h2></tittle>
+<tr>
+    <th></th>
+    <th></th>
+    <th></th>
+</tr>
+<!--
+<%= form_tag("/parametros", method: "get") do %>
+
+<tr>
+	
+<%=select_tag 'mcr_atr', options_from_collection_for_select(@mcrsearch, "id", 'name'), :prompt => "Seleccione un parámetro" , :onchange => 'this.form.submit();'  %></td>
+
+<td>Seleccione
+<%=select_tag 'atr', options_from_collection_for_select(@atributo, "id", "name"), :prompt => "Grupo de atributos" %></td>
+</td>
+
+</td>
+</tr>
+
+<%end%>
+</table>
+</div> !-->
+<%= link_to 'Parametros compuestos', new_parametro_path %>

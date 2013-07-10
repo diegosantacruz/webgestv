@@ -3,18 +3,26 @@
     <desc></desc>
     <name>ma1</name>
     <ref-prot/>
-    <type>simple</type>
+    <type>composite</type>
     <atrs>
       <atr>
         <desc/>
         <name>atributo 1</name>
         <rdbl>true</rdbl>
         <ref-prot/>
+        <type>String</type>
+        <value/>
+        <wtbl>false</wtbl>
+      </atr>
+      <atr>
+        <desc/>
+        <name>atributo 2</name>
+        <rdbl>true</rdbl>
+        <ref-prot/>
         <type>Integer</type>
         <value/>
-        <wtbl>true</wtbl>
+        <wtbl>false</wtbl>
       </atr>
     </atrs>
   </mcr-atr>
 </mcr-atrs>
-

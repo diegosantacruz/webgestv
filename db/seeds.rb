@@ -11,27 +11,37 @@ NetEle.delete_all
 LaynetEle.delete_all
 McrAtr.delete_all
 Atr.delete_all
+Hst.delete_all
 Alrt.delete_all
-(1..5).each do |i|
-  conn0= Conn.new(ip: "1.1.0.#{i}", port: i)
-  laynetele = LaynetEle.create(name: "nle#{i}", domain:'SNMPServerIntegration', desc: "network layer element #{i}")
-  laynetele.conn=conn0
+  i=1
   conn1= Conn.new(ip: "1.1.1.#{i}", port: i)
   netele = NetEle.create(name: "n#{i}", domain:'SNMPServerIntegration', desc: "network element #{i}")
   netele.conn=conn1
   conn2=Conn.new(ip: "1.1.1.#{i}", port: 100+i)
   serv=Serv.create(name:"s#{i}",  domain: netele.name, desc: "service #{i}", mother: netele._id)
   serv.conn=conn2
-  ma=McrAtr.create(name:"ma#{i}", desc: "macro attribute #{i}", tipo: "simple")
+  ma=McrAtr.create(name:"ma#{i}", desc: "macro attribute #{i}", tipo: "composite")
   serv.mcr_atrs << ma
+
+  (1..3).each do |i|
   a1=Atr.create(name:"a#{i}", desc: "attribute #{i}", tipo: "integer")
   ma.atrs << a1
-  al1=Alrt.create(title:"notif #{i}", msg:"alerta de notificacion #{i}", tipo:'notif')
-  a1.alrts << al1
-  al2=Alrt.create(title:"anmly #{i}", msg:"alerta de anomalia #{i}", tipo:'anmly')
-  a1.alrts << al2
-  al3=Alrt.create(title:"alarm #{i}", msg:"alerta de alarma #{i}", tipo:'alarm')
-  a1.alrts << al3
-end
+  end  
+
+  atrs=ma.atrs
+  (1..5).each do |i|
+  time= Time.now.to_i + i
+  h1=Hst.create(value:"#{i*10}", tstamp: time )
+  atrs[0].hsts << h1
+  h2=Hst.create(value:"#{i*15}", tstamp: time )
+  atrs[1].hsts << h2
+  h3=Hst.create(value:"A#{i}", tstamp: time )
+  atrs[2].hsts << h3
+  end
+
+
+# a1=Atr.create(name:"a#{i}", desc: "attribute #{i}", tipo: "integer")
+#  ma.atrs << a1
+
 
 

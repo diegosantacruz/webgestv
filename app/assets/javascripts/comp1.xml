@@ -1,0 +1,55 @@
+<mcr-atrs>
+  <mcr-atr>
+    <desc></desc>
+    <name>ma1</name>
+    <ref-prot/>
+    <type>composite</type>
+    <atrs>
+      <atr>
+        <desc/>
+        <name>Codec Video</name>
+        <rdbl>true</rdbl>
+        <ref-prot/>
+        <type>String</type>
+        <value/>
+        <wtbl>false</wtbl>
+      </atr>
+      <atr>
+        <desc/>
+        <name>Codec Audio</name>
+        <rdbl>true</rdbl>
+        <ref-prot/>
+        <type>String</type>
+        <value/>
+        <wtbl>false</wtbl>
+      </atr>
+      <atr>
+        <desc/>
+        <name>Duración</name>
+        <rdbl>true</rdbl>
+        <ref-prot/>
+        <type>Integer</type>
+        <value/>
+        <wtbl>false</wtbl>
+      </atr>
+      <atr>
+        <desc/>
+        <name>Tiempo de Procesamiento</name>
+        <rdbl>true</rdbl>
+        <ref-prot/>
+        <type>Float</type>
+        <value/>
+        <wtbl>false</wtbl>
+      </atr>  
+      <atr>
+        <desc/>
+        <name>Formato</name>
+        <rdbl>true</rdbl>
+        <ref-prot/>
+        <type>String</type>
+        <value/>
+        <wtbl>false</wtbl>
+      </atr>      
+    </atrs>
+  </mcr-atr>
+</mcr-atrs>

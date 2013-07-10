@@ -1,0 +1,3 @@
+=simple_fields_for @parametro do |f|
+ .accordion-inner
+ =f.input :refreshatr, :label => 'Atributos de condición', :collection => @atrsearch.map{ |c| [c.value, c.id] }, :as => :check_boxes, :item_wrapper_class => 'inline'
