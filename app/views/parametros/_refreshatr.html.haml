@@ -1,3 +1,7 @@
 =simple_fields_for @parametro do |f|
  .accordion-inner
- =f.input :refreshatr, :label => 'Atributos de condición', :collection => @atrsearch.map{ |c| [c.value, c.id] }, :as => :check_boxes, :item_wrapper_class => 'inline'
+ =f.input :refreshatr,:label => 'Atributos de condición', :collection => @refreshatr.map{ |c| [c.name,c.id] } ,:as => :check_boxes, :item_wrapper_class => 'inColumn', :input_html => {:onclick => "verificar(this.value)"}
+
+ #div
+  #campos
+

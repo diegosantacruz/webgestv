@@ -7,6 +7,7 @@ Webgestv::Application.routes.draw do
 
  #get "composites/index"
   match "/parametros" => "parametros#index"
+  match "/parametros" => "parametros#update_cond"
   ####!!! match "/reports/index" => "reports#index"
   resources :alrts
 
@@ -14,7 +15,7 @@ Webgestv::Application.routes.draw do
   resources :alr_mntr_frmls
   
   #match "/reports/index" => "reports#index"
-
+  match "/update_cond" => "parametros#update_cond"
   match "/update_atr" => "parametros#update_atr"
   match "/refresh_atr" => "parametros#refresh_atr"
   match 'laynet_ele/testconn' => 'laynet_eles#testconn', :via => :get
@@ -45,6 +46,7 @@ Webgestv::Application.routes.draw do
       resources :atrs
     end
   end
+
   resources :servs do
     get :delparams, on: :member
     resources :mcr_atrs do

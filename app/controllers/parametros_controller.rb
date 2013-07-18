@@ -2,9 +2,18 @@ class ParametrosController < ApplicationController
   # GET /parametros
   # GET /parametros.json
   def index
-    @parametros = Parametro.all
+    #@parametro = Atr.all
+    @parametro = NetEle.all
+   # @parametro = Hst.search(params[:searchbox])
     @mcrsearch=McrAtr.where(:tipo.all => ['composite'])
     @atributo = Atr.where(:mcr_atr_id => params[:mcr_atr])
+    respond_to do |format|
+
+      format.html # index.html.erb
+   
+    format.json { render json: @parametro }
+
+  end
     # respond_to do |format|
     #  format.html # index.html.erb
      # format.json { render json: @parametros }
@@ -16,6 +25,9 @@ class ParametrosController < ApplicationController
     #@parametro = Hst.where(:atr_id => $globalb)
     @parametro = Atr.find($globalb)
 
+
+    @historicos= Hst.where(:atr_id => params[:id])
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @parametro }
@@ -25,10 +37,12 @@ class ParametrosController < ApplicationController
   # GET /parametros/new
   # GET /parametros/new.json
   def new
+    @parametros = Atr.all
     @parametro = Parametro.new
     @mcrsearch=McrAtr.where(:tipo.all => ['composite'])
     @atrsearch=Atr.where(:mcr_atr_id => params[:id])
-    
+    @updatecond=Hst.where(:atr_id => params[:id]) 
+    @refreshatr=Atr.where(:mcr_atr_id => params[:id])
     respond_to do |format|
      format.html # new.html.erb
       format.json { render json: @parametro }
@@ -95,9 +109,8 @@ class ParametrosController < ApplicationController
     #@atrsearch=atr_search(params[:name]) 
     #if params[:action] == "edit" or params[:action] == "update"
       #inc = true
-    #end
-    
-    @atrsearch=refreshatr(params[:id])
+    #end    
+    @refreshatr=refreshatr(params[:id])
     $globalb = params[:id]
    # puts '//////////2'
    # puts @atrsearch.as_json
@@ -106,9 +119,9 @@ class ParametrosController < ApplicationController
     puts $globalb
     puts '/////////'
     
-    render :partial => 'refreshatr', :link => @atrsearch
+    render :partial => 'refreshatr', :link => @refreshatr
     
-    end
+  end
     def refreshatr(id)
       #band=Atr.where(:mcr_atr_id => params[:id])
     band=Atr.find(params[:id])
@@ -116,22 +129,18 @@ class ParametrosController < ApplicationController
     puts '//////////'
     puts band.as_json
     puts '/////////'
-
-
-    atrbusque=Hst.where(:atr_id => $globalb)
+    atrbusque=Atr.where(:mcr_atr_id => $global)
     #where(:mcr_atr_id => $global) 
     refreshatr=atrbusque.excludes(id: id)#aqui deberia cambiar Atr por el filtro que genero el primer listado...
-    puts 'Los atributos para generar las condiciones son:'
-    puts '//////////'
-    puts refreshatr.as_json
-    puts '/////////'
-
-   
-   
     refreshatr
     end
 
-  
+  def update_cond
+    @parametro = Parametro.new
+    #@nueva=AtrHst.where(:atr_id => params[])
+    @updatecond=Hst.where(:atr_id => $globalb)
+    render :partial => 'updatecond'
+  end
 end
 
  

@@ -52,3 +52,4 @@ gem 'haml-rails'
 gem 'magic_encoding'
 gem "simple_form", "~> 2.1.0"
 gem "nokogiri"
+gem 'tire'

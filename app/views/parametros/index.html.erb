@@ -10,21 +10,15 @@
     <th></th>
     <th></th>
 </tr>
-<!--
-<%= form_tag("/parametros", method: "get") do %>
-
-<tr>
-	
-<%=select_tag 'mcr_atr', options_from_collection_for_select(@mcrsearch, "id", 'name'), :prompt => "Seleccione un parámetro" , :onchange => 'this.form.submit();'  %></td>
-
-<td>Seleccione
-<%=select_tag 'atr', options_from_collection_for_select(@atributo, "id", "name"), :prompt => "Grupo de atributos" %></td>
-</td>
-
-</td>
+<% @parametro.each do |p| %>
+ <tr>
+    <td><%= link_to(p.name, p)%></td>
+  <!--  <td><%= %></td>
+    <td><%= %></td> !-->
 </tr>
-
-<%end%>
-</table>
-</div> !-->
+<% end %>
+<%= form_tag({:controller => "parametros", :action => "update_cond"}, :method => :get) do %>
+    <%= text_field_tag "searchbox", params[:searchbox] %>
+    <%= submit_tag "Buscar", :name => nil %>
+<% end %>
 <%= link_to 'Parametros compuestos', new_parametro_path %>

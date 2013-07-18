@@ -1,0 +1,10 @@
+=simple_fields_for @parametro do |f|
+ //.accordion-inner
+ //=f.input :refreshatr, :label => 'Filtrado de atributo variable', :collection => @updatecond.map{ |c| [c.value, c.id] }, :as => :check_boxes, :item_wrapper_class => 'inColumn', :input_html => {:onchange => "update_cond(this.value)"}
+
+ %tbody
+  Filtrado:
+ - @updatecond.each do |l|
+  %tr
+  %td= l.value
+  

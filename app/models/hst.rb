@@ -13,6 +13,13 @@ class Hst
   return @historicos
   end 
 
+  def self.search(search)
+    if search 
+    where('value LIKE ?', "%#{search}%")
+    else
+    scoped
+    end
+  end
 
   def self.calcularestadisticos(hst)
   @todosdatos = hst

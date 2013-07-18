@@ -15,7 +15,7 @@ class AtrsController < ApplicationController
   # GET /atrs/1.json
   def show
     @atr = Atr.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @atr }
